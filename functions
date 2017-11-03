@@ -1,0 +1,5 @@
+常量相关
+http://www.w3school.com.cn/php/php_ref_misc.asp
+  constant()	返回一个常量的值。	
+  define()	定义一个常量。	
+  defined()	检查某常量是否存在。
