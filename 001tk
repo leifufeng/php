@@ -1,1 +1,44 @@
 1
+   include "TopSdk.php";
+    date_default_timezone_set('Asia/Shanghai'); 
+	// $content = @file_get_contents('/Users/xt/Downloads/json.txt');
+	// var_dump(json_decode($content));
+	// var_dump(urlencode(mb_convert_encoding('阿里发票商家答疑', 'gb2312', 'utf-8')));
+
+    //公共参数
+	$appkey = '24000434';
+	$secret = '31badf50275ae04222254bce74e1020f';
+	$format = 'json';//返回值格式
+	//公共对象
+	$c = new TopClient;
+	$c->appkey = $appkey;
+	$c->secretKey = $secret;
+	$c->format = $format;
+	// mm_33464260_23230449_77116187
+	// $req = new TbkDgItemCouponGetRequest;
+	// $req->setAdzoneId("23230449");
+	// $req->setPlatform("1");
+	// $req->setCat("16,18");
+	// $req->setPageSize("1");
+	// $req->setQ("女装");
+	// $req->setPageNo("1");
+	// $resp = $c->execute($req);
+
+// $req = new TbkTpwdCreateRequest;
+// $req->setUserId("123");
+// $req->setText("长度大于5个字符");
+// $req->setUrl("https://uland.taobao.com/");
+// $req->setLogo("https://uland.taobao.com/");
+// $req->setExt("{}");
+// $resp = $c->execute($req);
+
+$req = new TbkUatmFavoritesGetRequest;
+// $req->setPageNo("1");
+// $req->setPageSize("20");
+$req->setFields("favorites_title,favorites_id");
+// $req->setType("1");
+$resp = $c->execute($req);
+
+	header('Content-Type:application/json; charset=utf-8');
+	exit(json_encode($resp,0));
+	// var_dump($resp);
